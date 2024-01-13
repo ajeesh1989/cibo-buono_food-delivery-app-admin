@@ -78,6 +78,14 @@ flutter:
    - lib/category pics/sandwich.png
    - lib/category pics/shakes.png
    - lib/pics/category bgi.jpg
+   - lib/burger pics/bbq burger.png
+   - lib/burger pics/beef burger.png
+   - lib/burger pics/chicken burger.png
+   - lib/burger pics/classic hamburger.png
+   - lib/burger pics/combo burger.png
+   - lib/burger pics/mushroom burger.png
+   - lib/burger pics/salmon burger.png
+   - lib/burger pics/veggie burger.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

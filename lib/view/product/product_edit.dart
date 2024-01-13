@@ -2,22 +2,23 @@ import 'package:cibo_buono_admin/core/colors/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class CategoryEdit extends StatefulWidget {
-  const CategoryEdit({Key? key}) : super(key: key);
+class ProductEdit extends StatefulWidget {
+  const ProductEdit({Key? key}) : super(key: key);
 
   @override
-  _CategoryEditState createState() => _CategoryEditState();
+  _ProductEditState createState() => _ProductEditState();
 }
 
-class _CategoryEditState extends State<CategoryEdit> {
+class _ProductEditState extends State<ProductEdit> {
   TextEditingController categoryNameController = TextEditingController();
   TextEditingController imagePathController = TextEditingController();
 
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  void _deleteCategory() {}
+  void _deleteProduct() {}
 
-  void _updateCategory() {}
+  void _updateProduct() {}
+
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
@@ -26,7 +27,7 @@ class _CategoryEditState extends State<CategoryEdit> {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          'Category Management',
+          'Product Management',
           style: GoogleFonts.openSans(
             fontSize: 25,
             fontWeight: FontWeight.w300,
@@ -49,7 +50,7 @@ class _CategoryEditState extends State<CategoryEdit> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 const Text(
-                  'Edit category',
+                  'Add new product',
                   style: TextStyle(fontSize: 18),
                 ),
                 const SizedBox(height: 20.0),
@@ -59,12 +60,49 @@ class _CategoryEditState extends State<CategoryEdit> {
                   controller: categoryNameController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Category name is required';
+                      return 'Product name is required';
                     }
                     return null;
                   },
                   decoration: InputDecoration(
-                    labelText: 'Category Name',
+                    labelText: 'Product Name',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                TextFormField(
+                  keyboardType: TextInputType.number,
+                  controller: categoryNameController,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Amount is required';
+                    }
+                    return null;
+                  },
+                  decoration: InputDecoration(
+                    labelText: 'Product Amount',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                TextFormField(
+                  controller: categoryNameController,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Product detail is required';
+                    }
+                    return null;
+                  },
+                  decoration: InputDecoration(
+                    labelText: 'Product Details',
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(15),
                     ),
@@ -78,7 +116,7 @@ class _CategoryEditState extends State<CategoryEdit> {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.green.shade400,
                       ),
-                      onPressed: _deleteCategory,
+                      onPressed: _deleteProduct,
                       child: Text(
                         'Delete',
                         style: GoogleFonts.openSans(
@@ -92,7 +130,7 @@ class _CategoryEditState extends State<CategoryEdit> {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.green.shade400,
                       ),
-                      onPressed: _updateCategory,
+                      onPressed: _updateProduct,
                       child: Text(
                         'Update',
                         style: GoogleFonts.openSans(
@@ -115,12 +153,10 @@ class _CategoryEditState extends State<CategoryEdit> {
 
   Widget _buildImageContainer() {
     return GestureDetector(
-      onTap: () {
-        // Implement image selection logic here
-      },
+      onTap: () {},
       child: Container(
         width: double.infinity,
-        height: 200.0,
+        height: 150.0,
         decoration: BoxDecoration(
           border: Border.all(color: Colors.grey),
           borderRadius: BorderRadius.circular(15.0),
